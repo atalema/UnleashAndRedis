@@ -5,27 +5,6 @@ const SEGMENT_NAME = "someSegmentOfUsers"; // We'll be using "someSegmentOfUsers
 const TOKEN = "*:development:some-secret"; // Prepopulated in the docker compose
 const USERS_TO_QUERY = [7, 8, 9];
 
-
-/**
- *  Pr-requisite:
- *    - Need to create a new strategy named ExternalSegment, add a paramater named SegmentName (which will have the name of the segment we would need to check in Redis)
- *  
- *  What's missing in the original approach, is how the segments named will be managed and synched with Unleash UI. 
- *  I've changed the sample app, you've provided by adding a new strategy called ExternalSegment, the strategy would internally read the segement name from a paramater called SegmentName.. 
- *  and internally it would reach out Redis for checking if the current userId in the context part of the segement in the paramater.  
- * 
- *  The custom strategy would expect a paramater name called SegmentName, and would assume that the context has a userId that we need to evaluate against. 
- * 
- *  As you can see we would manually to enter the segment name in the activiation strategy... I wonder if there is away, we can create a segment and use that in the activiation strategy for being evaluated 
- *  from the external source (Redis) In this case, we can automate creation of the segments using our internal systems... they would be just place folder for enabling better UI experience for our operation team.
- * 
- *  Check the below screen shots for visualizing the UI
- *    strategy.PNG
- *    strategy_creation.PNG
- *    
- *  Hope that makes sense.
- *  
- */
 class ExternalSegment extends Strategy {
   constructor(redisLayer) {
     super('ExternalSegment');
