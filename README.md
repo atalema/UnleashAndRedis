@@ -2,7 +2,7 @@
 
 This repo is to demonstrate how Unleash can be used with a Segment that's too large to fit into memory/pipe over network.
 
-``` What's missing in the original approach [here](https://github.com/sighphyre/UnleashAndRedis), is how the segments will be managed and synced with Unleash UI and how evaluation will happen in the proxy for front-end client side apps.  ```
+What's missing in the original approach [here](https://github.com/sighphyre/UnleashAndRedis), is how the segments will be managed and synced with Unleash UI and how evaluation will happen in the proxy for front-end client side apps.
 
 ## Prerequisites
 
